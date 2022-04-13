@@ -1,0 +1,16 @@
+frappe.ui.form.on("Adding Products", "quantity", function(frm, doctype, name) {
+          var row = locals[doctype][name];
+          row.total_price = row.price * row.quantity;
+         frm.refresh();
+        
+        
+        
+        // frappe.ui.form.on("Products", "price", function(frm, doctype, name) {
+//           var row = locals[doctype][name];
+//           row.total_price = row.price * row.quantity;
+         
+//           refresh_field("add_products");
+//         });
+
+
+}),
