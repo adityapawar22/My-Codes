@@ -1,0 +1,14 @@
+frappe.ui.form.on("Product Order", "refresh", function(frm) {
+    frm.fields_dict['add_products'].grid.get_field('product_name').get_query = function(doc, cdt, cdn) {
+        var child = locals[cdt][cdn];
+        //console.log(child);
+        return {    
+            filters:[
+                ['company_name', '=', child.company_name]
+            ]
+        };
+    };
+    refresh_field("add_products");
+});
+     
+
