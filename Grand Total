@@ -1,0 +1,14 @@
+frappe.ui.form.on('Product Order', {
+	refresh(frm,doctype,name) {
+	     var d = locals[doctype][name];
+           
+		var total = 0;
+		if (d.add_products){
+        d.add_products.forEach(function(od){
+          
+            total += od.total_price;
+        });
+		frappe.model.set_value(doctype,name,'total_amount', total);
+		}
+        
+	}
