@@ -1,0 +1,9 @@
+frappe.ui.form.on("Available Mobiles Stock", "onload", function(frm) {
+    frm.set_query("product_name", function() {
+        return {
+            "filters": {
+                "company_name":frm.doc.company_name
+            }
+        };
+    });
+});
